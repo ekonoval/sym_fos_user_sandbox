@@ -28,10 +28,11 @@
             {% endfor %}
         {% endfor %}
 
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+        <!-- fos user content start -->
+        <div class="user-content">
+            {% block fos_user_content %}{% endblock fos_user_content %}
         </div>
+        <!-- /fos user content end/ -->
 
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
