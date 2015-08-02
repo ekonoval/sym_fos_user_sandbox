@@ -7,3 +7,20 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    # http://stackoverflow.com/a/8210892/1101589
+    ekv_logger:
+        class: Symfony\Bridge\Monolog\Logger
+        arguments: [ekv]
+        calls:
+            - [pushHandler, [@ekv_handler]]
+            - [pushHandler, [@ekv_handler1]]
+
+    ekv_handler:
+        class: Monolog\Handler\StreamHandler
+        # 200 = INFO, see Monolog::Logger for the values of log levels
+        arguments: [%kernel.logs_dir%/%kernel.environment%.ekv.log, 200]
+
+    ekv_handler1:
+        class: Monolog\Handler\StreamHandler
+        arguments: [%kernel.logs_dir%/%kernel.environment%.ekv-warn.log, 300]
