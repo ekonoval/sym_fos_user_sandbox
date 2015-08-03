@@ -20,7 +20,7 @@ class RegistrationController extends BaseController
     public function registerAction(Request $request)
     {
         $this->container->get('ekv_logger')->info(
-            sprintf('Entering registration', $user)
+            sprintf('Entering registration')
         );
 
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */

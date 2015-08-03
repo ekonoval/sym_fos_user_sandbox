@@ -31,3 +31,10 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: ekv_user_registration }
+
+    # listener for registration
+    app_user.reg_init:
+        class: AppUserBundle\EventListener\RegistrationListener
+        arguments: [@ekv_logger]
+        tags:
+            - { name: kernel.event_subscriber }
