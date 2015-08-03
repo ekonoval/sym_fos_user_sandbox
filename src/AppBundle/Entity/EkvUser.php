@@ -35,7 +35,7 @@ class EkvUser extends User
      *     groups={"Registration", "Profile"}
      * )
      */
-    protected $name;
+    protected $name = '';
 
     /**
      * Get id
