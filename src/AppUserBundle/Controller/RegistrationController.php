@@ -11,10 +11,16 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends BaseController
 {
+
+    /**
+     * Copied form parent method. Added logging
+     * @param Request $request
+     * @return null|RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function registerAction(Request $request)
     {
-        $this->container->get('logger')->info(
-            sprintf('Entering registration', "fake")
+        $this->container->get('ekv_logger')->info(
+            sprintf('Entering registration', $user)
         );
 
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
