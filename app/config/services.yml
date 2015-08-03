@@ -24,3 +24,10 @@ services:
     ekv_handler1:
         class: Monolog\Handler\StreamHandler
         arguments: [%kernel.logs_dir%/%kernel.environment%.ekv-warn.log, 300]
+
+    # registration form
+    app_user.registration.form.type:
+        class: AppUserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: ekv_user_registration }
