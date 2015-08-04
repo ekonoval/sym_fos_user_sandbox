@@ -86,12 +86,12 @@ fos_user:
     user_class: AppBundle\Entity\EkvUser
     use_username_form_type: false
 
-#    service:
-#        mailer: fos_user.mailer.twig_swift
-#
-#    resetting:
-#        email:
-#            template: email/password_resetting.email.twig
+    service:
+        mailer: fos_user.mailer.twig_swift
+
+    resetting:
+        email:
+            template: email/password_resetting.email.twig
 
     registration:
         form:
