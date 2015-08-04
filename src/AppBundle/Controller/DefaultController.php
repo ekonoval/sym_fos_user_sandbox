@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Helpers\PlainResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bridge\Monolog\Logger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,13 +24,22 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        echo "<h2>Vasya1   </h2>\n";
+//        echo "<h2>Index page   </h2>\n";
 
-        /** @var Logger $logger */
-        $logger = $this->container->get('ekv_logger');
-        $logger->info('fake');
-        $logger->warning('warn1');
+//        /** @var Logger $logger */
+//        $logger = $this->container->get('ekv_logger');
+//        $logger->info('fake');
+//        $logger->warning('warn1');
 
-        return new Response('');
+        $user = $this->getUser();
+        $userName = "anonymous";
+        if (!is_null($user)) {
+            $user->getUserName();
+        }
+
+
+        //return new PlainResponse("<h4>UserName: {$userName}</h4>");
+
+        return $this->render('default/index.html.twig', ['userName' => $userName]);
     }
 }
