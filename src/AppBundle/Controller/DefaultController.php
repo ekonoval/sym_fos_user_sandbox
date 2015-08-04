@@ -42,4 +42,35 @@ class DefaultController extends Controller
 
         return $this->render('default/index.html.twig', ['userName' => $userName]);
     }
+
+    /**
+     * @Route("/email-test")
+     */
+    public function emailTestAction()
+    {
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Hello Email')
+            ->setFrom('send@example.com')
+            ->setTo('ekonoval@gmail.com')
+            ->setBody(
+                "<html><body>Test</body></html>",
+                'text/html'
+            )/*
+                 * If you also want to include a plaintext version of the message
+                ->addPart(
+                    $this->renderView(
+                        'Emails/registration.txt.twig',
+                        array('name' => $name)
+                    ),
+                    'text/plain'
+                )
+                */
+        ;
+
+        $res = $this->get('mailer')->send($message);
+
+//        var_dump($res);
+
+        return new PlainResponse();
+    }
 }
