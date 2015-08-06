@@ -32,6 +32,15 @@ security:
 
             logout:       true
             anonymous:    true
+
+            # http://symfony.com/doc/current/cookbook/security/remember_me.html
+            remember_me:
+                key:      "%secret%"
+                lifetime: 2592000
+                path:     /
+                domain:   ~
+                user_provider: fos_userbundle
+
             #anonymous: ~
             # activate different ways to authenticate
 
