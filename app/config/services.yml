@@ -38,3 +38,20 @@ services:
         arguments: [@ekv_logger]
         tags:
             - { name: kernel.event_subscriber }
+
+    # invitation
+    app.form.registration:
+        class: AppBundle\Form\RegistrationFormType
+        tags:
+            - { name: "form.type", alias: "app_user_registration" }
+
+    app.form.invitation:
+        class: AppBundle\Form\InvitationFormType
+        arguments: ['@app.form.data_transformer.invitation']
+        tags:
+            - { name: "form.type", alias: "app_invitation_type" }
+
+    app.form.data_transformer.invitation:
+        class: AppBundle\Form\InvitationToCodeTransformer
+        arguments: ['@doctrine.orm.entity_manager']
+        public: false

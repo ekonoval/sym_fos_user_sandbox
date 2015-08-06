@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Invitation;
 use AppBundle\Helpers\PlainResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bridge\Monolog\Logger;
@@ -70,6 +71,23 @@ class DefaultController extends Controller
         $res = $this->get('mailer')->send($message);
 
 //        var_dump($res);
+
+        return new PlainResponse();
+    }
+
+    /**
+     * @Route("/invitation-create")
+     */
+    public function invitationCreateAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $invitation = new Invitation();
+        $invitation->setEmail('ekonoval@gmail.com');
+        $invitation->send();
+
+        $em->persist($invitation);
+        $em->flush();
 
         return new PlainResponse();
     }

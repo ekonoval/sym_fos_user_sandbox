@@ -95,7 +95,8 @@ fos_user:
 
     registration:
         form:
-            type: ekv_user_registration
+#            type: ekv_user_registration
+            type: app_user_registration
 
         confirmation:
             enabled: true
@@ -103,3 +104,4 @@ fos_user:
     from_email:
         address:        noreply@fos.sym.dev
         sender_name:    Fos Test App
+
