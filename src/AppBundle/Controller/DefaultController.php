@@ -2,12 +2,14 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\EkvUser;
 use AppBundle\Helpers\PlainResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bridge\Monolog\Logger;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
 
 class DefaultController extends Controller
 {
@@ -72,5 +74,40 @@ class DefaultController extends Controller
 //        var_dump($res);
 
         return new PlainResponse();
+    }
+
+    /**
+     * @Route("/role-add")
+     */
+    public function addRoleAction()
+    {
+        $userManager = $this->container->get('fos_user.user_manager');
+
+        /** @var EkvUser $user */
+        $user = $this->getUser();
+
+//        $user->setRoles(['ROLE_USER', 'ROLE_FAKE']);
+        $user->removeRole('ROLE_FAKE');
+//        $user->setLocked(false);
+
+//        $em = $this->getDoctrine()->getManager();
+//        $em->persist($user);$em->flush();
+
+        $userManager->updateUser($user);
+
+        return new PlainResponse();
+    }
+
+    /**
+     * @Route("/check-granted")
+     */
+    public function checkGrantedAction()
+    {
+        /** @var AuthorizationChecker $securityChecker */
+        $securityChecker = $this->get('security.authorization_checker');
+
+        var_dump($securityChecker->isGranted('ROLE_ADMIN'));
+        var_dump($securityChecker->isGranted('ROLE_FAKE'));
+        var_dump($securityChecker->isGranted('ROLE_USER'));
     }
 }
