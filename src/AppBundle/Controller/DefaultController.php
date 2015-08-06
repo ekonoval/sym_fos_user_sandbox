@@ -36,7 +36,7 @@ class DefaultController extends Controller
         $user = $this->getUser();
         $userName = "anonymous";
         if (!is_null($user)) {
-            $user->getUserName();
+            $userName = $user->getUserName();
         }
 
 
