@@ -87,7 +87,8 @@ class DefaultController extends Controller
         $user = $this->getUser();
 
 //        $user->setRoles(['ROLE_USER', 'ROLE_FAKE']);
-        $user->removeRole('ROLE_FAKE');
+//        $user->removeRole('ROLE_FAKE');
+        $user->setRoles(['ROLE_ADMIN']);
 //        $user->setLocked(false);
 
 //        $em = $this->getDoctrine()->getManager();
