@@ -19,21 +19,21 @@ class TrMovie
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $movieid;
+    private $movieId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="movieName", type="string", length=222, nullable=true)
      */
-    private $moviename;
+    private $movieName;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="createDate", type="date", nullable=true)
      */
-    private $createdate = '0000-00-00';
+    private $createDate = '0000-00-00';
 
 
 }

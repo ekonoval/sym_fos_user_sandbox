@@ -19,21 +19,21 @@ class TrEpisode
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $episodeid;
+    private $episodeId;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="seasonNum", type="integer", nullable=false)
      */
-    private $seasonnum = '0';
+    private $seasonNum = '0';
 
     /**
      * @var integer
      *
      * @ORM\Column(name="episodeNum", type="integer", nullable=false)
      */
-    private $episodenum = '0';
+    private $episodeNum = '0';
 
     /**
      * @var \TrMovies
@@ -43,7 +43,7 @@ class TrEpisode
      *   @ORM\JoinColumn(name="movieID", referencedColumnName="movieID")
      * })
      */
-    private $movieid;
+    private $movieId;
 
 
 }

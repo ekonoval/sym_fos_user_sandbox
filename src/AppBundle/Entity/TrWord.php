@@ -19,35 +19,35 @@ class TrWord
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $wordid;
+    private $wordId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="wordEN", type="string", length=255, nullable=false)
      */
-    private $worden;
+    private $wordEn;
 
     /**
      * @var string
      *
      * @ORM\Column(name="wordRU", type="string", length=255, nullable=false)
      */
-    private $wordru;
+    private $wordRu;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="isHard", type="boolean", nullable=true)
      */
-    private $ishard = '0';
+    private $isHard = '0';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="superHard", type="boolean", nullable=true)
      */
-    private $superhard = '0';
+    private $superHard = '0';
 
     /**
      * @var \TrEpisodes
@@ -57,7 +57,7 @@ class TrWord
      *   @ORM\JoinColumn(name="episodeID", referencedColumnName="episodeID")
      * })
      */
-    private $episodeid;
+    private $episodeId;
 
 
 }
