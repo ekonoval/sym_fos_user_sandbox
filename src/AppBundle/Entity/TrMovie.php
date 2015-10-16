@@ -36,4 +36,60 @@ class TrMovie
     private $createDate = '0000-00-00';
 
 
+
+    /**
+     * Get movieId
+     *
+     * @return integer 
+     */
+    public function getMovieId()
+    {
+        return $this->movieId;
+    }
+
+    /**
+     * Set movieName
+     *
+     * @param string $movieName
+     * @return TrMovie
+     */
+    public function setMovieName($movieName)
+    {
+        $this->movieName = $movieName;
+
+        return $this;
+    }
+
+    /**
+     * Get movieName
+     *
+     * @return string 
+     */
+    public function getMovieName()
+    {
+        return $this->movieName;
+    }
+
+    /**
+     * Set createDate
+     *
+     * @param \DateTime $createDate
+     * @return TrMovie
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+
+        return $this;
+    }
+
+    /**
+     * Get createDate
+     *
+     * @return \DateTime 
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
+    }
 }

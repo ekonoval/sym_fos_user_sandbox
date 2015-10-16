@@ -46,4 +46,83 @@ class TrEpisode
     private $movieId;
 
 
+
+    /**
+     * Get episodeId
+     *
+     * @return integer 
+     */
+    public function getEpisodeId()
+    {
+        return $this->episodeId;
+    }
+
+    /**
+     * Set seasonNum
+     *
+     * @param integer $seasonNum
+     * @return TrEpisode
+     */
+    public function setSeasonNum($seasonNum)
+    {
+        $this->seasonNum = $seasonNum;
+
+        return $this;
+    }
+
+    /**
+     * Get seasonNum
+     *
+     * @return integer 
+     */
+    public function getSeasonNum()
+    {
+        return $this->seasonNum;
+    }
+
+    /**
+     * Set episodeNum
+     *
+     * @param integer $episodeNum
+     * @return TrEpisode
+     */
+    public function setEpisodeNum($episodeNum)
+    {
+        $this->episodeNum = $episodeNum;
+
+        return $this;
+    }
+
+    /**
+     * Get episodeNum
+     *
+     * @return integer 
+     */
+    public function getEpisodeNum()
+    {
+        return $this->episodeNum;
+    }
+
+    /**
+     * Set movieId
+     *
+     * @param \AppBundle\Entity\TrMovies $movieId
+     * @return TrEpisode
+     */
+    public function setMovieId(\AppBundle\Entity\TrMovies $movieId = null)
+    {
+        $this->movieId = $movieId;
+
+        return $this;
+    }
+
+    /**
+     * Get movieId
+     *
+     * @return \AppBundle\Entity\TrMovies 
+     */
+    public function getMovieId()
+    {
+        return $this->movieId;
+    }
 }
