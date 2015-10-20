@@ -38,3 +38,9 @@ services:
         arguments: [@ekv_logger]
         tags:
             - { name: kernel.event_subscriber }
+
+    app.twig_perf:
+        class: AppBundle\Extension\PerformanceTwigExtension
+#        public: false
+        tags:
+            - { name: twig.extension }
