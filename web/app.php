@@ -5,6 +5,7 @@
  */
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
+umask(0000);
 $GLOBALS['PerformanceTwigExtensionMicrotime'] = microtime(true);
 $environment = (getenv('SYMFONY_ENV')) ?: 'prod';
 //$environment = 'prod';
