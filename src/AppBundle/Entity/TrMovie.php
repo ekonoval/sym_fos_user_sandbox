@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="tr_movies")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class TrMovie
 {
@@ -29,13 +30,11 @@ class TrMovie
     private $movieName;
 
     /**
-     * @var \DateTime
+     * @var \Dat
      *
      * @ORM\Column(name="createDate", type="date", nullable=true)
      */
-    private $createDate = '0000-00-00';
-
-
+    private $createDate;
 
     /**
      * Get movieId
@@ -76,7 +75,7 @@ class TrMovie
      * @param \DateTime $createDate
      * @return TrMovie
      */
-    public function setCreateDate($createDate)
+    public function setCreateDate(\DateTime $createDate)
     {
         $this->createDate = $createDate;
 
@@ -91,5 +90,13 @@ class TrMovie
     public function getCreateDate()
     {
         return $this->createDate;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createDate = new \DateTime();
     }
 }
