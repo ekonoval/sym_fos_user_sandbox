@@ -99,4 +99,23 @@ class TrMovie
     {
         $this->createDate = new \DateTime();
     }
+
+    function __toString()
+    {
+        $str = "";
+        if ($this->movieId) {
+            $str .= "# {$this->movieId} ";
+        }
+        if ($this->movieName) {
+            $str .= " | {$this->movieName}";
+        }
+
+        if (empty($str)) {
+            $str = "New movie";
+        }
+
+        return $str;
+    }
+
+
 }

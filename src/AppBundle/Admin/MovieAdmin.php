@@ -23,12 +23,31 @@ class MovieAdmin extends Admin
     {
         //parent::configureDatagridFilters($filter);
         $filter->add('movieName');
+        $filter->add('movieId');
     }
 
     protected function configureListFields(ListMapper $list)
     {
         //parent::configureListFields($list);
-        $list->add('movieName');
+
+//        $list->addIdentifier('movieName', null, array(
+//             'route' => array(
+//                 'name' => 'edit'
+//             )
+//         ))
+//         ;
+
+
+        $list->add('movieId');
+        $list->addIdentifier('movieName', null, ['route' => ['name' => 'show']]);
+
+        $list->add('_action', 'actions', array(
+            'actions' => array(
+                'show' => array(),
+                'edit' => array(),
+                'delete' => array(),
+            )
+        ));
     }
 
 
