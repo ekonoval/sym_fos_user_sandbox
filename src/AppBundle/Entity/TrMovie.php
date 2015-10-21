@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,11 +31,22 @@ class TrMovie
     private $movieName;
 
     /**
-     * @var \Dat
+     * @var \DateTime
      *
      * @ORM\Column(name="createDate", type="date", nullable=true)
      */
     private $createDate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="TrEpisode", mappedBy="movie")
+     */
+    private $episodes;
+
+    public function __construct()
+    {
+        $this->episodes = new ArrayCollection();
+    }
+
 
     /**
      * Get movieId

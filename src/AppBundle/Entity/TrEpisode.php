@@ -39,12 +39,12 @@ class TrEpisode
     /**
      * @var TrMovie
      *
-     * @ORM\ManyToOne(targetEntity="TrMovie")
+     * @ORM\ManyToOne(targetEntity="TrMovie", inversedBy="episodes")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="movieID", referencedColumnName="movieID")
      * })
      */
-    private $movieId;
+    private $movie;
 
 
     /**
@@ -106,12 +106,12 @@ class TrEpisode
     /**
      * Set movieId
      *
-     * @param TrMovie $movieId
+     * @param TrMovie $movie
      * @return TrEpisode
      */
-    public function setMovieId(TrMovie $movieId = null)
+    public function setMovie(TrMovie $movie = null)
     {
-        $this->movieId = $movieId;
+        $this->movie = $movie;
 
         return $this;
     }
@@ -121,8 +121,8 @@ class TrEpisode
      *
      * @return TrMovie
      */
-    public function getMovieId()
+    public function getMovie()
     {
-        return $this->movieId;
+        return $this->movie;
     }
 }
