@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\TrMovie;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,15 +37,14 @@ class TrEpisode
     private $episodeNum = '0';
 
     /**
-     * @var \TrMovies
+     * @var \TrMovie
      *
-     * @ORM\ManyToOne(targetEntity="TrMovies")
+     * @ORM\ManyToOne(targetEntity="TrMovie")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="movieID", referencedColumnName="movieID")
      * })
      */
     private $movieId;
-
 
 
     /**
@@ -106,10 +106,10 @@ class TrEpisode
     /**
      * Set movieId
      *
-     * @param \AppBundle\Entity\TrMovies $movieId
+     * @param TrMovie $movieId
      * @return TrEpisode
      */
-    public function setMovieId(\AppBundle\Entity\TrMovies $movieId = null)
+    public function setMovieId(TrMovie $movieId = null)
     {
         $this->movieId = $movieId;
 
@@ -119,7 +119,7 @@ class TrEpisode
     /**
      * Get movieId
      *
-     * @return \AppBundle\Entity\TrMovies 
+     * @return TrMovie
      */
     public function getMovieId()
     {

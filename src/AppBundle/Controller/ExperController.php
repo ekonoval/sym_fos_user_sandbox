@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\TrEpisode;
 use AppBundle\Entity\TrMovie;
 use AppBundle\Entity\TrWord;
 use AppBundle\Helpers\PlainResponse;
@@ -38,7 +39,7 @@ class ExperController extends Controller
     /**
      * @Route("/tr-movie")
      */
-    public function trMovie()
+    public function trMovieAction()
     {
         $movie = new TrMovie();
         $movie->setMovieName("fake movie name");
@@ -47,6 +48,18 @@ class ExperController extends Controller
 
         $em->persist($movie);
         $em->flush();
+
+        return new PlainResponse();
+    }
+
+    /**
+     * @Route("/tr-episode")
+     */
+    public function trEpisodeAction()
+    {
+
+        $repo = $this->getDoctrine()->getRepository(TrEpisode::class);
+        $episodes = $repo->findBy(['movieId' => 5]);
 
         return new PlainResponse();
     }
