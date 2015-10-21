@@ -37,7 +37,7 @@ class TrEpisode
     private $episodeNum = '0';
 
     /**
-     * @var \TrMovie
+     * @var TrMovie
      *
      * @ORM\ManyToOne(targetEntity="TrMovie")
      * @ORM\JoinColumns({

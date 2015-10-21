@@ -9,3 +9,15 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle]]
+            - [ addChild, ['@app.admin.episode']]
+
+    app.admin.episode:
+        class: AppBundle\Admin\EpisodeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Episodes" }
+        arguments:
+            - ~
+            - AppBundle\Entity\TrEpisode
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
