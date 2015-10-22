@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\TrEpisode;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,9 +51,9 @@ class TrWord
     private $superHard = '0';
 
     /**
-     * @var \TrEpisodes
+     * @var \TrEpisode
      *
-     * @ORM\ManyToOne(targetEntity="TrEpisodes")
+     * @ORM\ManyToOne(targetEntity="TrEpisode")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="episodeID", referencedColumnName="episodeID")
      * })
@@ -166,10 +167,10 @@ class TrWord
     /**
      * Set episodeId
      *
-     * @param \AppBundle\Entity\TrEpisodes $episodeId
+     * @param TrEpisode $episodeId
      * @return TrWord
      */
-    public function setEpisodeId(\AppBundle\Entity\TrEpisodes $episodeId = null)
+    public function setEpisodeId(TrEpisode $episodeId = null)
     {
         $this->episodeId = $episodeId;
 
@@ -179,7 +180,7 @@ class TrWord
     /**
      * Get episodeId
      *
-     * @return \AppBundle\Entity\TrEpisodes 
+     * @return TrEpisode
      */
     public function getEpisodeId()
     {

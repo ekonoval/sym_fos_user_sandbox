@@ -39,7 +39,8 @@ class MovieAdmin extends Admin
 
 
         $list->add('movieId');
-        $list->addIdentifier('movieName', null, ['route' => ['name' => 'show']]);
+        //$list->addIdentifier('movieName', null, ['route' => ['name' => 'show']]);
+        $list->addIdentifier('movieName');
 
         $list->add('_action', 'actions', array(
             'actions' => array(

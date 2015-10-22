@@ -59,8 +59,33 @@ class ExperController extends Controller
     {
 
         $repo = $this->getDoctrine()->getRepository(TrEpisode::class);
-        $episodes = $repo->findBy(['movieId' => 5]);
+        //$episodes = $repo->findBy(['movieId' => 5]);
+        $episodes = $repo->findBy(['movieId' => 9]);
 
         return new PlainResponse();
+    }
+
+    /**
+     * @Route("/tr-join")
+     */
+    public function trMovieEpisodeJoinAction()
+    {
+
+        $repo = $this->getDoctrine()->getRepository(TrEpisode::class);
+        $episodes = $repo->findBy(array('movie' => 1));
+
+        return new PlainResponse();
+    }
+
+    /**
+     * @Route("/render")
+     */
+    public function renderAction()
+    {
+
+        //return $this->render("src/AppBundle/Resources/views/admin/partials/fake.html.twig");
+        return $this->render("AppBundle:admin:partials/fake.html.twig");
+//        return $this->render("AppBundle::root.html.twig");
+//        return $this->render("AppBundle:fake:risk.html.twig");
     }
 }
