@@ -53,14 +53,12 @@ class TrWord
     /**
      * @var \TrEpisode
      *
-     * @ORM\ManyToOne(targetEntity="TrEpisode")
+     * @ORM\ManyToOne(targetEntity="TrEpisode", inversedBy="words")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="episodeID", referencedColumnName="episodeID")
      * })
      */
-    private $episodeId;
-
-
+    private $episode;
 
     /**
      * Get wordId
@@ -167,12 +165,12 @@ class TrWord
     /**
      * Set episodeId
      *
-     * @param TrEpisode $episodeId
+     * @param TrEpisode $episode
      * @return TrWord
      */
-    public function setEpisodeId(TrEpisode $episodeId = null)
+    public function setEpisode(TrEpisode $episode = null)
     {
-        $this->episodeId = $episodeId;
+        $this->episode = $episode;
 
         return $this;
     }
@@ -182,8 +180,8 @@ class TrWord
      *
      * @return TrEpisode
      */
-    public function getEpisodeId()
+    public function getEpisode()
     {
-        return $this->episodeId;
+        return $this->episode;
     }
 }

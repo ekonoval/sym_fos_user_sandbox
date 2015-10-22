@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\TrMovie;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -45,6 +46,16 @@ class TrEpisode
      * })
      */
     private $movie;
+
+    /**
+     * @ORM\OneToMany(targetEntity="TrWord", mappedBy="episode")
+     */
+    private $words;
+
+    public function __construct()
+    {
+        $this->words = new ArrayCollection();
+    }
 
 
     /**
