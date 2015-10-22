@@ -47,6 +47,7 @@ class MovieAdmin extends Admin
                 'show' => array(),
                 'edit' => array(),
                 'delete' => array(),
+                'episodes_list' => array('template' => 'AppBundle:admin:partials/movie_episodes_link.html.twig')
             )
         ));
     }
