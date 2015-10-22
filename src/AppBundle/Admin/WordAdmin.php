@@ -6,11 +6,11 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class EpisodeAdmin extends Admin
+class WordAdmin extends Admin
 {
     public function getParentAssociationMapping()
     {
-        return "movie";
+        return "episode";
     }
 
     /**
@@ -21,38 +21,34 @@ class EpisodeAdmin extends Admin
     {
 //        parent::configureFormFields($form);
 
-        $form->add('seasonNum', 'text');
+        $form->add('wordEn', 'text');
+        $form->add('wordRu', 'text');
+        $form->add('isHard');
+        $form->add('superHard');
     }
 
     protected function configureDatagridFilters(DatagridMapper $filter)
     {
         //parent::configureDatagridFilters($filter);
-        $filter->add('seasonNum');
+//        $filter->add('seasonNum');
 //        $filter->add('movieId');
     }
 
     protected function configureListFields(ListMapper $list)
     {
-        //parent::configureListFields($list);
 
-//        $list->addIdentifier('movieName', null, array(
-//             'route' => array(
-//                 'name' => 'edit'
-//             )
-//         ))
-//         ;
+        $list->add('wordId');
+        $list->addIdentifier('wordEn');
+        $list->addIdentifier('WordRu');
 
-
-        $list->add('movieId');
-        $list->addIdentifier('seasonNum', null, ['route' => ['name' => 'show']]);
-        $list->addIdentifier('episodeNum');
+        $list->add('isHard');
+        $list->add('superHard', null, ['editable' => true]);
 
         $list->add('_action', 'actions', array(
             'actions' => array(
 //                'show' => array(),
                 'edit' => array(),
                 'delete' => array(),
-                'words_list' => array('template' => 'AppBundle:admin:partials/episode_words_link.html.twig')
             )
         ));
     }

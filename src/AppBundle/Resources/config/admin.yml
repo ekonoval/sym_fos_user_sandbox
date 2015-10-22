@@ -21,3 +21,15 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle]]
+            - [ addChild, ['@app.admin.word']]
+
+    app.admin.word:
+        class: AppBundle\Admin\WordAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Words" }
+        arguments:
+            - ~
+            - AppBundle\Entity\TrWord
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]

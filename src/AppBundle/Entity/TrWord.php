@@ -41,14 +41,14 @@ class TrWord
      *
      * @ORM\Column(name="isHard", type="boolean", nullable=true)
      */
-    private $isHard = '0';
+    private $isHard = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="superHard", type="boolean", nullable=true)
      */
-    private $superHard = '0';
+    private $superHard = false;
 
     /**
      * @var \TrEpisode
