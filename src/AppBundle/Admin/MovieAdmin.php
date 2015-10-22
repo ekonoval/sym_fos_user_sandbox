@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\TrMovie;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -50,6 +51,29 @@ class MovieAdmin extends Admin
                 'episodes_list' => array('template' => 'AppBundle:admin:partials/movie_episodes_link.html.twig')
             )
         ));
+    }
+
+
+    /**
+     * @param TrMovie $object
+     * @return string
+     */
+    function toString($object)
+    {
+        $str = "";
+        if ($object->getMovieName()) {
+            $str .= "{$object->getMovieName()}";
+        }
+
+        if ($object->getMovieId()) {
+            $str .= " [{$object->getMovieId()}] ";
+        }
+
+        if (empty($str)) {
+            $str = "New movie";
+        }
+
+        return $str;
     }
 
 
