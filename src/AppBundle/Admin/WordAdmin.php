@@ -1,6 +1,8 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\TrEpisode;
+use AppBundle\Entity\TrWord;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -54,4 +56,10 @@ class WordAdmin extends Admin
     }
 
 
+    public function toString($object)
+    {
+        /** @var $object TrWord*/
+
+        return "'{$object->getWordEn()}' [{$object->getWordId()}]";
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\TrEpisode;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -55,6 +56,14 @@ class EpisodeAdmin extends Admin
                 'words_list' => array('template' => 'AppBundle:admin:partials/episode_words_link.html.twig')
             )
         ));
+    }
+
+
+    public function toString($object)
+    {
+        /** @var $object TrEpisode*/
+
+        return "s{$object->getSeasonNum()} e{$object->getEpisodeNum()}";
     }
 
 
